@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css"/>
+
+    <!--importando biblioteca de icons-->
+   <!-- 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/
+    font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/
+    k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA==" 
+    crossorigin="anonymous" referrerpolicy="no-referrer" /> 
+   -->
+
+    <link rel="stylesheet" href="./styles/output.css" />
+
+    <title>The Best Burger</title>
+</head>
+<body>
+    <!--HEADER-->
+    <header class="w-full h-[420px] bg-zinc-900 bg-home bg-cover bg-center">
+        <div class="w-full h-full flex flex-col justify-center items-center">
+            <img src="./assets/hamb-1.png" alt="Logo Hamburgueria" 
+            class="w-32 h-32 rounded-full shadow-lg hover:scale-110 duration-200"/>
+
+            <h1 class="text-3xl mt-2 mb-2 font-black text-white">Nunes Leite Burguer</h1>
+
+            <span class="text-white font-semibold">Rua Jose Campos 156, Granja Marileuza - Uberlândia/MG </span>
+
+            <div class="bg-green-600 px-4 py-1 rounded-lg mt-7" id="date-span">
+                <span class="text-white font-semibold" >Ter á Dom - 18:00 ás 23:00</span>
+            </div>
+        </div>
+    </header>
+    <!--FIM HEADER-->
+
+    <!--MENU-->
+       <h2 class="text-2xl text-center md:text-3xl font-extrabold mt-9 mb-8">
+            Cardápio
+       </h2>
+
+       <div id="menu">
+
+<main class="grid grid-cols-1 md:grid-cols-2 gap-7 md:gap-10 mx-auto max-w-7xl px-2 mb-16">
+
+        <!--produto/item-->
+        <div class="flex gap-3">
+                <img src="./assets/hamb-2.png" alt="Hamburguer Classico Gourmet"
+                class="w-28 h-28 rounded-lg shadow-lg hover:scale-110 hover:-rotate-5"/>
+
+            <div>
+                <p class="font-semibold text-lg">Hambúrguer Clássico Gourmet</p>
+                <p class="text-sm">Pão brioche, 180g de carne bovina Angus, queijo cheddar maturado, 
+                alface americana, tomate, picles caseiro, cebola roxa caramelizada e maionese de alho.</p>
+            
+                <div class="flex items-center justify-between">
+                    <p class="font-semibold text-lg">R$ 35.00</p>
+
+                    <button class="bg-green-600 px-2 py-1 rounded-lg  add-to-cart-btn"
+                    data-name="Hambúrguer Clássico Gourmet"
+                    data-price="35.00">
+                        <img src="./icon/carrinho_compra.png" class="w-6 h-6">
+                    </button>
+                </div>
+                
+            </div>
+        </div>
+        <!--fim produto/item-->
+
+        <!--2_produto/item-->
+        <div class="flex gap-3">
+            <img src="./assets/hamb-3.png" alt="Hambúrguer de Cordeiro com Hortelã"
+            class="w-28 h-28 rounded-lg shadow-lg hover:scale-110 hover:-rotate-5"/>
+
+        <div>
+            <p class="font-semibold text-lg">Hambúrguer de Cordeiro com Hortelã</p>
+            <p class="text-sm"> Pão australiano, 200g de carne de cordeiro, queijo feta, rúcula, tomate confit,
+                 cebola roxa grelhada e molho de iogurte com hortelã.</p>
+        
+            <div class="flex items-center  justify-between mt-2">
+                <p class="font-semibold text-lg">R$ 42.00</p>
+
+                <button class="bg-green-600 px-2 py-1 rounded-lg  add-to-cart-btn"
+                data-name="Hambúrguer de Cordeiro com Hortelã"
+                data-price="42.00">
+                    <img src="./icon/carrinho_compra.png" class="w-6 h-6">
+                </button>
+            </div>
+            
+        </div>
+    </div>
+    <!--2_fim produto/item-->
+
+    <!--3_produto/item-->
+    <div class="flex gap-3">
+        <img src="./assets/hamb-4.png" alt="Hambúrguer Vegetariano"
+        class="w-28 h-28 rounded-lg shadow-lg hover:scale-110 hover:-rotate-5"/>
+
+        <div>
+            <p class="font-semibold text-lg">Hambúrguer Vegetariano</p>
+            <p class="text-sm"> Pão integral, hambúrguer de grão-de-bico e quinoa, queijo gouda, alface, 
+            tomate, cenoura ralada, abacate fatiado e maionese de ervas.</p>
+    
+            <div class="flex items-center  justify-between mt-2">
+             <p class="font-semibold text-lg">R$ 30.00</p>
+
+                <button class="bg-green-600 px-2 py-1 rounded-lg  add-to-cart-btn"
+                    data-name="Hambúrguer Vegetariano"
+                    data-price="30.00">
+                    <img src="./icon/carrinho_compra.png" class="w-6 h-6">
+                </button>
+            </div>
+        
+        </div>
+    </div>
+    <!--3_fim produto/item-->
+
+    <!--4_produto/item-->
+    <div class="flex gap-3">
+        <img src="./assets/hamb-4.png" alt="Hambúrguer Vegetariano"
+        class="w-28 h-28 rounded-lg shadow-lg hover:scale-110 hover:-rotate-5"/>
+
+        <div>
+            <p class="font-semibold text-lg">Hambúrguer Vegetariano</p>
+            <p class="text-sm"> Pão integral, hambúrguer de grão-de-bico e quinoa, queijo gouda, alface, 
+            tomate, cenoura ralada, abacate fatiado e maionese de ervas.</p>
+    
+            <div class="flex items-center  justify-between mt-2">
+                <p class="font-semibold text-lg">R$ 30.00</p>
+
+                <button class="bg-green-600 px-2 py-1 rounded-lg  add-to-cart-btn"
+                    data-name="Hambúrguer Vegetariano"
+                    data-price="30.00">
+                     <img src="./icon/carrinho_compra.png" class="w-6 h-6">
+                </button>
+            </div>
+        
+        </div>
+    </div>
+    <!--4_fim produto/item-->
+
+    <!--5_produto/item-->
+    <div class="flex gap-3">
+        <img src="./assets/hamb-5.png" alt="Hambúrguer de Frango Crocanteo"
+        class="w-28 h-28 rounded-lg shadow-lg hover:scale-110 hover:-rotate-5"/>
+
+        <div>
+            <p class="font-semibold text-lg">Hambúrguer de Frango Crocante</p>
+            <p class="text-sm"> Pão de milho, peito de frango empanado em panko, 
+                queijo suíço, alface romana, tomate, pepino agridoce e molho ranch.</p>
+    
+            <div class="flex items-center  justify-between mt-2">
+                <p class="font-semibold text-lg">R$ 33.00</p>
+
+                <button class="bg-green-600 px-2 py-1 rounded-lg  add-to-cart-btn"
+                    data-name="Hambúrguer de Frango Crocante"
+                    data-price="33.00">
+                     <img src="./icon/carrinho_compra.png" class="w-6 h-6">
+                </button>
+            </div>
+        
+        </div>
+    </div>
+    <!--5_fim produto/item-->
+
+    <!--6_produto/item-->
+    <div class="flex gap-3">
+        <img src="./assets/hamb-6.png" alt="Hambúrguer BBQ Bacon"
+        class="w-28 h-28 rounded-lg shadow-lg hover:scale-110 hover:-rotate-5"/>
+
+        <div>
+            <p class="font-semibold text-lg">Hambúrguer BBQ Bacon</p>
+            <p class="text-sm"> Pão brioche, 180g de carne bovina, queijo cheddar, bacon crocante, 
+                cebola crispy, alface, tomate e molho barbecue artesanal.</p>
+    
+            <div class="flex items-center  justify-between mt-2">
+                <p class="font-semibold text-lg">R$ 38.00</p>
+
+                <button class="bg-green-600 px-2 py-1 rounded-lg  add-to-cart-btn"
+                    data-name="Hambúrguer BBQ Bacon"
+                    data-price="38.00">
+                     <img src="./icon/carrinho_compra.png" class="w-6 h-6">
+                </button>
+            </div>
+        
+        </div>
+    </div>
+    <!--6_fim produto/item-->
+
+    <!--7_produto/item-->
+    <div class="flex gap-3">
+        <img src="./assets/hamb-7.png" alt="Hambúrguer Trufado"
+        class="w-28 h-28 rounded-lg shadow-lg hover:scale-110 hover:-rotate-5"/>
+
+        <div>
+            <p class="font-semibold text-lg">Hambúrguer Trufado</p>
+            <p class="text-sm"> Pão de batata, 180g de carne de wagyu, queijo brie, rúcula, cogumelos salteados,
+                 cebola caramelizada e maionese trufada.</p>
+    
+            <div class="flex items-center  justify-between mt-2">
+                <p class="font-semibold text-lg">R$ 55.00</p>
+
+                <button class="bg-green-600 px-2 py-1 rounded-lg  add-to-cart-btn"
+                    data-name="Hambúrguer Trufado"
+                    data-price="55.00">
+                     <img src="./icon/carrinho_compra.png" class="w-6 h-6">
+                </button>
+            </div>
+        
+        </div>
+    </div>
+    <!--7_fim produto/item-->
+
+    <!--8_produto/item-->
+    <div class="flex gap-3">
+        <img src="./assets/hamb-8.png" alt="Hambúrguer de Salmão"
+        class="w-28 h-28 rounded-lg shadow-lg hover:scale-110 hover:-rotate-5"/>
+
+        <div>
+            <p class="font-semibold text-lg">Hambúrguer de Salmão</p>
+            <p class="text-sm"> Pão integral, 150g de hambúrguer de salmão, cream cheese com dill, 
+                alface, tomate, cebola roxa e molho tártaro.</p>
+    
+            <div class="flex items-center  justify-between mt-2">
+                <p class="font-semibold text-lg">R$ 45.00</p>
+
+                <button class="bg-green-600 px-2 py-1 rounded-lg  add-to-cart-btn"
+                    data-name="Hambúrguer de Salmão"
+                    data-price="45.00">
+                     <img src="./icon/carrinho_compra.png" class="w-6 h-6">
+                </button>
+            </div>
+        
+        </div>
+    </div>
+    <!--8_fim produto/item-->
+
+</main>
+
+        <div class="mx-auto max-w-7xl px-2 my-2">
+            <h2 class="font-extrabold text-3xl mb-10">Bebidas</h2>
+        </div>
+
+        <!--Grid Bebidas-->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-7 md:gap-10 mx-auto max-w-7xl px-2 mb-16" id="menu">
+
+            <!--bebida/item-->
+            <div class="flex gap-3 w-full">
+                    <img src="./assets/refri-1.png" alt="Coca lata"
+                    class="w-28 h-28 rounded-lg shadow-lg hover:scale-110 hover:-rotate-5"/>
+
+             <div class="w-full">
+                    <p class="font-semibold text-lg">Coca lata</p>
+
+                <div class="flex items-center  justify-between mt-2">
+                    <p class="font-semibold text-lg">R$ 5.00</p>
+
+                <button class="bg-green-600 px-2 py-1 rounded-lg  add-to-cart-btn"
+                    data-name="Coca lata"
+                    data-price="5.00">
+                    <img src="./icon/carrinho_compra.png" class="w-6 h-6">
+                </button>
+                </div>
+    
+             </div>
+            </div>
+            <!--fim bebida/item-->
+
+            <!--2_bebida/item-->
+            <div class="flex gap-3 w-full">
+                <img src="./assets/refri-2.png" alt="Guaraná lata"
+                class="w-28 h-28 rounded-lg shadow-lg hover:scale-110 hover:-rotate-5"/>
+
+            <div class="w-full">
+                <p class="font-semibold text-lg">Guaraná lata</p>
+
+            <div class="flex items-center  justify-between mt-2">
+                <p class="font-semibold text-lg">R$ 4.50</p>
+
+            <button class="bg-green-600 px-2 py-1 rounded-lg  add-to-cart-btn"
+                data-name="Guaraná lata"
+                data-price="4.50">
+                <img src="./icon/carrinho_compra.png" class="w-6 h-6">
+            </button>
+            </div>
+
+         </div>
+        </div>
+        <!--2_fim bebida/item-->
+
+        </div>
+        <!--FIM Grid Bebidas-->
+
+       </div>
+    <!--FIM MENU-->
+
+    <!--Modal cart-->
+    <div class="bg-black/50 w-full h-full fixed top-0 left-0 z-[99] items-center justify-center hidden" id="cart-modal">
+        <div class="bg-white p-5 rounded-md min-w-[90%] md:min-w-[600px]">
+            <h2 class="text-center font-semibold text-lg">Meu Carrinho</h2>
+
+            <div id="cart-items" class="flex justify-between mb-2 flex-col"></div>
+
+            <p class="font-semibold">Total: <span id="cart-total">0.00</span></p>
+
+            <p class="font-semibold mt-4">Endereço de entrega:</p>
+            <input type="text" placeholder="Digite seu endereço completo" id="address"
+            class="w-full border-2 p-1 rounded my-1">
+
+            <p class="text-red-600 hidden" id="address-warn">Digite seu endereço completo!!</p>
+
+
+        <div class="flex items-center justify-between mt-5 w-full">
+            <button id="close-modal-btn">Fechar</button>
+            <button id="checkout-btn" class="bg-green-500 text-white px-4 py-2 rounded">Finalizar pedido</button>
+        </div>
+
+        </div>
+
+    </div>
+    <!--FIM Modal cart-->
+
+    <!--Button Cart Footer-->
+    <footer class="w-full bg-red-500 py-2 fixed  bottom-0 z-40 flex items-center justify-center">
+        <button class="flex items-center gap-2 font-semibold" id="cart-btn">
+            (<span id="cart-count">0</span>)
+             Veja meu carrinho 
+             <img src="./icon/carrinho_compra.png" class="w-6 h-6">
+        </button>
+    </footer>
+    <!--END Button Cart Footer-->
+
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+    
+    <!--Parte de Java Script-->
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,15 @@
+Etapas a seguir p/ criar um site com html, css e javascript:
+- instalar o nodejs;
+- instalar no vscode o tailwind;
+- abrir cmd na pasta do projeto e digitar: npm init -y (p/ iniciar a configuração do nodejs);
+- depois temos que instalar a biblioteca tailwind, usando o cmd digitando: npm install -D tailwindcss;
+- cria arquivo de configuração: npx tailwindcss init;
+- linha de código do arquivo tailwind.config.js: content: ["*/**/*;{html, js}"], = essa linha diz que qualquer
+arquivo.html e .js que estiver dentro da pasta do projeto pode utilizar o css tailwind.
+- cria um novo script na arquivo package.json, com a seguinte linha:  
+                                        "dev": "npx tailwindcss -i ./styles/style.css -o ./styles/output.css --watch"
+dentro de "scripts" em package.json;
+- codigo p/ rodar o script criado anteriormente: npm run dev, quando for executado gera o arq.
+output.css que contem o css tailwind;
+- SEMPRE q sair do site e entrar de novo tem que exectar npm run dev, tem  sempre q rodar o twind;
+
