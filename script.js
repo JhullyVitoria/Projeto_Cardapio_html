@@ -8,6 +8,7 @@ const CloseModal = document.getElementById("close-modal-btn")
 const cartCount = document.getElementById("cart-count")
 const addresInput = document.getElementById("address")
 const addresWarn = document.getElementById("address-warn")
+const observationInput = document.getElementById("observation")
 
 let cart = [];
 
@@ -175,21 +176,27 @@ CheckoutBtn.addEventListener("click", function(){
              `${item.name}:  quantidade: ${item.quantity}, preço: R$ ${item.price} | `
         )
     }).join("")
-
-    const message = encodeURIComponent(cartItems)
+    
+    const observation = observationInput.value.trim();
+    
+    let message = `*Pedido:*%0A${cartItems}%0A*Endereço:* ${addresInput.value}`;
+    if (observation){
+        message += `%0A*Observação:* ${encodeURIComponent(observation)}`;
+    }
     const phone = "34996583889"
 
-    window.open(`https://wa.me/${phone}?text=${message} Endereço: ${addresInput.value}`, "_blank")
+    window.open(`https://wa.me/${phone}?text=${encodeURIComponent(message)}`, "_blank")
 
     cart = [];
     updateCartModal();
+    observationInput.value = ""; // Limpa o campo de observação
 })
 
 // verificar se oo restarante está aberto
 function checkrestaurantOpen(){
     const data = new Date();
     const hora = data.getHours();
-    return hora >= 18 && hora < 22; //true
+    return hora >= 10 && hora < 22; //true
 }
 
 const spanItem = document.getElementById("date-span")
