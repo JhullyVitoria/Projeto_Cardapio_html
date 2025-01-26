@@ -175,13 +175,13 @@ CheckoutBtn.addEventListener("click", function(){
         return(
              `${item.name}:  quantidade: ${item.quantity}, preço: R$ ${item.price} | `
         )
-    }).join("")
+    }).join("%0A")
     
     const observation = observationInput.value.trim();
     
     let message = `*Pedido:*%0A${cartItems}%0A*Endereço:* ${addresInput.value}`;
     if (observation){
-        message += `%0A*Observação:* ${encodeURIComponent(observation)}`;
+        message += `*Observação:* ${encodeURIComponent(observation)}`;
     }
     const phone = "+5534996583889"
 
