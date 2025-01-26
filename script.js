@@ -181,9 +181,7 @@ CheckoutBtn.addEventListener("click", function(){
     
     const observation = observationInput.value.trim();
     
-    let message = `*Pedido:*%0A${cartItems}%0A`;
-    
-    message += `*%0AEndereço:* ${addresInput.value}%0A`;
+    let message = `*Pedido:*%0A${cartItems}%0A%0A*Endereço:* ${addresInput.value}%0A`;
     
     if (observation){
         message += `%0A*Observação:* ${observation}`;
