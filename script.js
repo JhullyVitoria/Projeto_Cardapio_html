@@ -184,6 +184,11 @@ CheckoutBtn.addEventListener("click", function(){
     if (observation){
         message += `%0A*Observação:* ${observation}`;
     }
+
+    // Calcular o valor total do pedido
+    const total = cart.reduce((total, item) => {
+        return total + (item.quantity * item.price);
+    }, 0);
     
     message += `%0A*Valor Total:* R$ ${total.toFixed(2)}`;
     
