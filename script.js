@@ -181,17 +181,13 @@ CheckoutBtn.addEventListener("click", function(){
     
     let message = `*Pedido:*%0A${cartItems}%0A`;
     
-    message += `*Endereço:* ${addresInput.value}%0A`;
+    message += `*%0AEndereço:* ${addresInput.value}%0A`;
     
     if (observation){
         message += `%0A*Observação:* ${observation}`;
     }
-
-    // Calcular e adicionar o valor total
-    const totalValue = cart.reduce((total, item) => {
-        return total + (item.quantity * item.price);
-    }, 0);
-    message += `%0A*Valor Total:* R$ ${totalValue.toFixed(2)}`;
+    
+    message += `%0A*Valor Total:* R$ ${total.toFixed(2)}`;
     
     const phone = "+5534996583889"
 
