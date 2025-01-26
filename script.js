@@ -183,7 +183,7 @@ CheckoutBtn.addEventListener("click", function(){
     if (observation){
         message += `%0A*Observação:* ${encodeURIComponent(observation)}`;
     }
-    const phone = "34996583889"
+    const phone = "+5534996583889"
 
     window.open(`https://wa.me/${phone}?text=${encodeURIComponent(message)}`, "_blank")
 
