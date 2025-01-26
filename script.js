@@ -104,6 +104,8 @@ function updateCartModal(){
     });
 
     cartCount.innerHTML = cart.length;
+
+    return total;
 }
 
 // Função para remover o item do carrinho
