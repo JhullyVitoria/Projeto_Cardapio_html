@@ -181,11 +181,11 @@ CheckoutBtn.addEventListener("click", function(){
     
     let message = `*Pedido:*%0A${cartItems}%0A*Endereço:* ${addresInput.value}`;
     if (observation){
-        message += `*Observação:* ${encodeURIComponent(observation)}`;
+        message += `%0A*Observação:* ${observation}`;
     }
     const phone = "+5534996583889"
 
-    window.open(`https://wa.me/${phone}?text=${encodeURIComponent(message)}`, "_blank")
+    window.open(`https://wa.me/${phone}?text=${message}`, "_blank")
 
     cart = [];
     updateCartModal();
