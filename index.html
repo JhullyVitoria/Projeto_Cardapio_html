@@ -333,51 +333,6 @@
 
     </div>
     <!--FIM Modal cart-->
-
-    <!-- ================================================================== -->
-<!--  SECÇÃO » PAGAMENTO SEGURO                                         -->
-<!-- ================================================================== -->
-<section id="pagamento-seguro" style="text-align:center; margin:2rem 0;">
-  <h2>Escolha seu método de pagamento</h2>
-
-  <!-- ====== MERCADO PAGO – Link de Pagamento ======================= -->
-  <!-- Gere o link em: Mercado Pago › Link de Pagamento                -->
-  <a href="https://mpago.la/SEU_LINK_AQUI" target="_blank"
-     style="display:inline-block;margin:0.5rem;">
-    <img src="https://http2.mlstatic.com/frontend-assets/mdp-cart/assets/img/payments/mercadopago.svg"
-         alt="Pagar com Mercado Pago" height="48">
-  </a>
-
-  <!-- ====== STRIPE – Buy Button ==================================== -->
-  <!-- 1. Crie um Payment Link, abra “Buy button”, copie o embed code  -->
-  <!-- 2. Troque BUY_BUTTON_ID e PK_LIVE_AQUI                          -->
-  <script async src="https://js.stripe.com/v3/buy-button.js"></script>
-  <stripe-buy-button buy-button-id="BUY_BUTTON_ID"
-                     publishable-key="pk_live_SEU_PK_AQUI"
-                     style="--background: #635BFF; --text-color:#fff;">
-  </stripe-buy-button>
-
-  <!-- ====== PAYPAL – Botão Buy Now ================================= -->
-  <!-- Gere o botão em PayPal › All Tools › PayPal Buttons             -->
-  <form action="https://www.paypal.com/cgi-bin/webscr" method="post"
-        style="display:inline-block;margin:0.5rem;">
-    <!-- Identifica sua conta → e‑mail PayPal ou merchant ID -->
-    <input type="hidden" name="business" value="SEU_EMAIL@EXEMPLO.COM">
-    <!-- Tipo de botão -->
-    <input type="hidden" name="cmd" value="_xclick">
-    <!-- Produto & valor fixo -->
-    <input type="hidden" name="item_name" value="Pedido Cardápio">
-    <input type="hidden" name="amount" value="49.90">
-    <input type="hidden" name="currency_code" value="BRL">
-    <!-- Botão -->
-    <input type="image"
-           src="https://www.paypalobjects.com/en_US/i/btn/btn_buynowCC_LG.gif"
-           border="0" name="submit" alt="Pagar com PayPal">
-    <img alt="" border="0" width="1" height="1"
-         src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif">
-  </form>
-</section>
-
     
     <!--Button Cart Footer-->
     <footer class="w-full bg-red-500 py-2 fixed  bottom-0 z-40 flex items-center justify-center">
