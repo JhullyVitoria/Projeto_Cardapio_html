@@ -38,9 +38,6 @@ menu.addEventListener("click", function(event){
         const name  = parentButton.getAttribute("data-name")
         const price = parseFloat(parentButton.getAttribute("data-price"))
 
-        //console.log(name)
-        //console.log(price)
-
         addToCart(name, price);
     }
  
@@ -185,15 +182,7 @@ CheckoutBtn.addEventListener("click", function(){
         addresInput.classList.add("border-red-700")
         return;
     }
-    if (!paymentSelect.value) {
-      alert("Por favor, selecione a forma de pagamento.");
-      return;
-    }
-    if (paymentSelect.value === "dinheiro" && !cashValueInput.value) {
-      alert("Por favor, informe quanto irá pagar em dinheiro para o cálculo do troco.");
-      return;
-    }
-
+    
     // Enviar o pedido para api whatsaap
     const cartItems = cart.map((item) => {
         return(
