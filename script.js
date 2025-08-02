@@ -170,24 +170,6 @@ if (pagamento === "dinheiro") {
     message += `%0A*Pagamento:* ${pagamento.toUpperCase()}`;
 }
 
-// mostrar/esconder o campo de troco
-const radiosPagamento = document.querySelectorAll('input[name="payment"]');
-const trocoContainer = document.getElementById("troco-container");
-
-radiosPagamento.forEach(radio => {
-    radio.addEventListener("change", () => {
-        if (radio.value === "dinheiro") {
-            trocoContainer.classList.remove("hidden");
-        } else {
-            trocoContainer.classList.add("hidden");
-            document.getElementById("valorPago").value = "";
-            document.getElementById("troco-warn").classList.add("hidden");
-        }
-    });
-});
-
-
-
 // Função para finalizar a compra
 CheckoutBtn.addEventListener("click", function(){
 
@@ -263,3 +245,19 @@ if(isOpen){
     spanItem.classList.remove("bg-green-600");
     spanItem.classList.add("bg-red-500");
 }
+
+// mostrar/esconder o campo de troco
+const radiosPagamento = document.querySelectorAll('input[name="payment"]');
+const trocoContainer = document.getElementById("troco-container");
+
+radiosPagamento.forEach(radio => {
+    radio.addEventListener("change", () => {
+        if (radio.value === "dinheiro") {
+            trocoContainer.classList.remove("hidden");
+        } else {
+            trocoContainer.classList.add("hidden");
+            document.getElementById("valorPago").value = "";
+            document.getElementById("troco-warn").classList.add("hidden");
+        }
+    });
+});
