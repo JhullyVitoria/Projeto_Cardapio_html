@@ -140,19 +140,22 @@ addresInput.addEventListener("input", function(event){
 })
 
 // modo de pagamento
-const paymentSelect = document.getElementById("payment");
-const cashContainer = document.getElementById("cash-container");
-const cashValueInput = document.getElementById("cash-value");
+const paymentOptions = document.querySelectorAll('input[name="payment"]');
+const trocoContainer = document.getElementById("troco-container");
+const valorPagoInput = document.getElementById("valorPago");
 
-paymentSelect.addEventListener("change", () => {
-  if (paymentSelect.value === "dinheiro") {
-    cashContainer.style.display = "block";
-    cashValueInput.required = true;
-  } else {
-    cashContainer.style.display = "none";
-    cashValueInput.required = false;
-    cashValueInput.value = ""; // limpa valor anterior
-  }
+// Adiciona um listener de evento 'change' a cada botão de rádio
+paymentOptions.forEach(option => {
+    option.addEventListener("change", () => {
+        if (option.value === "dinheiro") {
+            trocoContainer.style.display = "block";
+            valorPagoInput.required = true;
+        } else {
+            trocoContainer.style.display = "none";
+            valorPagoInput.required = false;
+            valorPagoInput.value = ""; // Limpa valor anterior
+        }
+    });
 });
 
 // Função para finalizar a compra
@@ -191,12 +194,13 @@ CheckoutBtn.addEventListener("click", function(){
     }).join("%0A")
     
     const observation = observationInput.value.trim();
-    
-    let message = `*Pedido:*%0A${cartItems}%0A%0A*Endereço:* ${addresInput.value}%0A`;
-    message += `*Forma de pagamento:* ${paymentSelect.value}%0A`;
+    const selectedPayment = document.querySelector('input[name="payment"]:checked').value;
 
-    if (paymentSelect.value === "dinheiro") {
-        message += `*Vai pagar com:* R$ ${Number(cashValueInput.value).toFixed(2)}%0A`;
+    let message = `*Pedido:*%0A${cartItems}%0A%0A*Endereço:* ${addresInput.value}%0A`;
+    message += `*Forma de pagamento:* ${selectedPayment}%0A`;
+    
+    if (selectedPayment === "dinheiro") {
+        message += `*Vai pagar com:* R$ ${Number(valorPagoInput.value).toFixed(2)}%0A`;
     }
     
     if (observation){
