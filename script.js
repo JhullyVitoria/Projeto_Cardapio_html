@@ -204,6 +204,11 @@ CheckoutBtn.addEventListener("click", function(){
     const observation = observationInput.value.trim();
     
     let message = `*Pedido:*%0A${cartItems}%0A%0A*Endereço:* ${addresInput.value}%0A`;
+    message += `*Forma de pagamento:* ${paymentSelect.value}%0A`;
+
+    if (paymentSelect.value === "dinheiro") {
+        message += `*Vai pagar com:* R$ ${Number(cashValueInput.value).toFixed(2)}%0A`;
+    }
     
     if (observation){
         message += `%0A*Observação:* ${observation}`;
