@@ -142,6 +142,52 @@ addresInput.addEventListener("input", function(event){
     }
 })
 
+// modo de pagamento
+const pagamentoSelecionado = document.querySelector('input[name="payment"]:checked');
+if (!pagamentoSelecionado) {
+    alert("Escolha uma forma de pagamento.");
+    return;
+}
+
+let pagamento = pagamentoSelecionado.value;
+let valorPago = document.getElementById("valorPago").value;
+const trocoWarn = document.getElementById("troco-warn");
+
+// Validação e cálculo do troco
+if (pagamento === "dinheiro") {
+    valorPago = parseFloat(valorPago);
+    const total = cart.reduce((total, item) => total + (item.quantity * item.price), 0);
+
+    if (!valorPago || valorPago < total) {
+        trocoWarn.classList.remove("hidden");
+        return;
+    } else {
+        trocoWarn.classList.add("hidden");
+        const troco = (valorPago - total).toFixed(2);
+        message += `%0A*Pagamento:* Dinheiro%0A*Valor pago:* R$ ${valorPago.toFixed(2)}%0A*Troco para:* R$ ${troco}`;
+    }
+} else {
+    message += `%0A*Pagamento:* ${pagamento.toUpperCase()}`;
+}
+
+// mostrar/esconder o campo de troco
+const radiosPagamento = document.querySelectorAll('input[name="payment"]');
+const trocoContainer = document.getElementById("troco-container");
+
+radiosPagamento.forEach(radio => {
+    radio.addEventListener("change", () => {
+        if (radio.value === "dinheiro") {
+            trocoContainer.classList.remove("hidden");
+        } else {
+            trocoContainer.classList.add("hidden");
+            document.getElementById("valorPago").value = "";
+            document.getElementById("troco-warn").classList.add("hidden");
+        }
+    });
+});
+
+
+
 // Função para finalizar a compra
 CheckoutBtn.addEventListener("click", function(){
 
