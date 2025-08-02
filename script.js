@@ -143,32 +143,20 @@ addresInput.addEventListener("input", function(event){
 })
 
 // modo de pagamento
-const pagamentoSelecionado = document.querySelector('input[name="payment"]:checked');
-if (!pagamentoSelecionado) {
-    alert("Escolha uma forma de pagamento.");
-    return;
-}
+const paymentSelect = document.getElementById("payment");
+const cashContainer = document.getElementById("cash-container");
+const cashValueInput = document.getElementById("cash-value");
 
-let pagamento = pagamentoSelecionado.value;
-let valorPago = document.getElementById("valorPago").value;
-const trocoWarn = document.getElementById("troco-warn");
-
-// Validação e cálculo do troco
-if (pagamento === "dinheiro") {
-    valorPago = parseFloat(valorPago);
-    const total = cart.reduce((total, item) => total + (item.quantity * item.price), 0);
-
-    if (!valorPago || valorPago < total) {
-        trocoWarn.classList.remove("hidden");
-        return;
-    } else {
-        trocoWarn.classList.add("hidden");
-        const troco = (valorPago - total).toFixed(2);
-        message += `%0A*Pagamento:* Dinheiro%0A*Valor pago:* R$ ${valorPago.toFixed(2)}%0A*Troco para:* R$ ${troco}`;
-    }
-} else {
-    message += `%0A*Pagamento:* ${pagamento.toUpperCase()}`;
-}
+paymentSelect.addEventListener("change", () => {
+  if (paymentSelect.value === "dinheiro") {
+    cashContainer.style.display = "block";
+    cashValueInput.required = true;
+  } else {
+    cashContainer.style.display = "none";
+    cashValueInput.required = false;
+    cashValueInput.value = ""; // limpa valor anterior
+  }
+});
 
 // Função para finalizar a compra
 CheckoutBtn.addEventListener("click", function(){
@@ -196,6 +184,14 @@ CheckoutBtn.addEventListener("click", function(){
         addresWarn.classList.remove("hidden")
         addresInput.classList.add("border-red-700")
         return;
+    }
+    if (!paymentSelect.value) {
+      alert("Por favor, selecione a forma de pagamento.");
+      return;
+    }
+    if (paymentSelect.value === "dinheiro" && !cashValueInput.value) {
+      alert("Por favor, informe quanto irá pagar em dinheiro para o cálculo do troco.");
+      return;
     }
 
     // Enviar o pedido para api whatsaap
@@ -245,19 +241,3 @@ if(isOpen){
     spanItem.classList.remove("bg-green-600");
     spanItem.classList.add("bg-red-500");
 }
-
-// mostrar/esconder o campo de troco
-const radiosPagamento = document.querySelectorAll('input[name="payment"]');
-const trocoContainer = document.getElementById("troco-container");
-
-radiosPagamento.forEach(radio => {
-    radio.addEventListener("change", () => {
-        if (radio.value === "dinheiro") {
-            trocoContainer.classList.remove("hidden");
-        } else {
-            trocoContainer.classList.add("hidden");
-            document.getElementById("valorPago").value = "";
-            document.getElementById("troco-warn").classList.add("hidden");
-        }
-    });
-});
