@@ -12,23 +12,22 @@ const observationInput = document.getElementById("observation")
 
 let cart = [];
 
-// abrir o modal de carrinho
-cartBtn.addEventListener("click", function(){
-    cartModal.style.display = "flex"
+// Abrir o modal
+cartBtn.addEventListener("click", function() {
     updateCartModal();
-})
+    cartModal.classList.remove("hidden");
+});
 
-// fechar o modal quando clicar fora
-cartModal.addEventListener("click", function(event){
-    if(event.target === cartModal){
-        cartModal.style.display = "none"
+// Fechar o modal
+cartModal.addEventListener("click", function(event) {
+    if (event.target === cartModal) {
+        cartModal.classList.add("hidden");
     }
-})
+});
 
-// fechar a aba de modal
-CloseModal.addEventListener("click", function(){
-    cartModal.style.display = "none"
-})
+closeModalBtn.addEventListener("click", function() {
+    cartModal.classList.add("hidden");
+});
 
 menu.addEventListener("click", function(event){
 
