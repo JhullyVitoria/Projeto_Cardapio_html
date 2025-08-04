@@ -2,6 +2,7 @@ const menu = document.getElementById("menu")
 const cartBtn = document.getElementById("cart-btn")
 const cartModal = document.getElementById("cart-modal")
 const cartItems = document.getElementById("cart-items")
+const cartCount = document.getElementById("cart-count"); // Já está correto aqui
 const closeModalBtn = document.getElementById("close-modal-btn")
 const cartTotal = document.getElementById("cart-total")
 const checkoutBtn = document.getElementById("checkout-btn")
@@ -98,6 +99,7 @@ function updateCartModal() {
     });
 
     cartTotal.textContent = total.toFixed(2);
+    cartCount.textContent = cart.length; // Adicionada linha para atualizar o contador
 }
 
 // Remover item do carrinho
@@ -205,7 +207,4 @@ function checkRestaurantOpen() {
     return isOpen;
 }
 
-// Chame a função para verificar o status do restaurante quando a página carregar
 checkRestaurantOpen();
-
-// A rolagem do modal agora funcionará corretamente.
