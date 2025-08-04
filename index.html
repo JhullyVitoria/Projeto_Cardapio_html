@@ -298,21 +298,21 @@
 
 <!--Modal cart-->
 <div class="bg-black/50 w-full h-full fixed top-0 left-0 z-[99] flex items-center justify-center hidden" id="cart-modal">
-  <div class="bg-white p-5 rounded-md w-[90%] md:w-[600px] max-h-[90vh] overflow-y-auto flex flex-col gap-4">
+  <div class="bg-white p-5 rounded-md w-[90%] md:w-[600px] max-h-[90vh] flex flex-col gap-4">
     <h2 class="text-center font-semibold text-lg">Meu Carrinho</h2>
+    
+    <div class="overflow-y-auto flex-grow">
+      <div id="cart-items" class="flex flex-col gap-2"></div>
 
-    <!-- Itens do carrinho -->
-    <div id="cart-items" class="flex flex-col gap-2"></div>
-
-    <!-- Total -->
-    <p class="font-semibold">Total: <span id="cart-total">0.00</span></p>
-
-    <!-- Observação -->
-    <div>
-      <p class="font-semibold mt-2">Obs (alguma observação que deseja destacar):</p>
-      <input type="text" placeholder="Digite alguma observação, se tiver" id="observation"
-        class="w-full border-2 p-1 rounded my-1">
-    </div>
+      <p class="font-semibold">Total: <span id="cart-total">0.00</span></p>
+      
+      <div>
+        <p class="font-semibold mt-2">Obs (alguma observação que deseja destacar):</p>
+        <input type="text" placeholder="Digite alguma observação, se tiver" id="observation"
+          class="w-full border-2 p-1 rounded my-1">
+      </div>
+      
+      </div>
 
     <!-- Forma de pagamento -->
     <div>
