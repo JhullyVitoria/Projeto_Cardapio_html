@@ -296,54 +296,58 @@
        </div>
     <!--FIM MENU-->
 
-<!-- FUNDO ESCURO DO MODAL -->
-<div id="cart-modal" class="fixed inset-0 bg-black bg-opacity-50 z-[99] flex items-center justify-center hidden">
+<!--Modal cart-->
+<div class="bg-black/50 w-full h-full fixed top-0 left-0 z-[99] flex items-center justify-center hidden" id="cart-modal">
+  <div class="bg-white p-5 rounded-md w-[90%] md:w-[600px] max-h-[90vh] overflow-y-auto flex flex-col gap-4">
+    <h2 class="text-center font-semibold text-lg">Meu Carrinho</h2>
 
-  <!-- CONTEÚDO DO MODAL: SCROLLÁVEL -->
-  <div class="bg-white rounded-md w-[90%] max-w-[600px] max-h-[90vh] overflow-y-auto p-5 flex flex-col">
+    <!-- Itens do carrinho -->
+    <div id="cart-items" class="flex flex-col gap-2"></div>
 
-    <h2 class="text-center font-semibold text-lg mb-4">Meu Carrinho</h2>
-
-    <!-- LISTA DE ITENS -->
-    <div id="cart-items" class="flex flex-col gap-2 mb-4">
-      <!-- Itens do carrinho vão aqui -->
-    </div>
-
-    <!-- TOTAL -->
+    <!-- Total -->
     <p class="font-semibold">Total: <span id="cart-total">0.00</span></p>
 
-    <!-- OBSERVAÇÃO -->
-    <label class="font-semibold mt-4 block">Obs:</label>
-    <input type="text" id="observation" class="w-full border-2 p-2 rounded my-1" />
-
-    <!-- FORMA DE PAGAMENTO -->
-    <div class="mb-4 mt-4">
-      <label class="block mb-2 font-medium">Forma de pagamento:</label>
-      <label><input type="radio" name="payment" value="pix" required> Pix</label>
-      <label class="ml-4"><input type="radio" name="payment" value="cartao"> Cartão</label>
-      <label class="ml-4"><input type="radio" name="payment" value="dinheiro"> Dinheiro</label>
+    <!-- Observação -->
+    <div>
+      <p class="font-semibold mt-2">Obs (alguma observação que deseja destacar):</p>
+      <input type="text" placeholder="Digite alguma observação, se tiver" id="observation"
+        class="w-full border-2 p-1 rounded my-1">
     </div>
 
-    <!-- TROCO (se dinheiro) -->
-    <div id="troco-container" class="mb-4 hidden">
-      <label for="valorPago" class="block mb-2 font-medium">Valor que você irá pagar:</label>
-      <input type="number" id="valorPago" class="border border-gray-300 rounded px-3 py-2 w-full" placeholder="R$" min="0.01" step="0.01" />
+    <!-- Forma de pagamento -->
+    <div>
+      <label class="block mb-2 font-medium">Forma de pagamento:</label>
+      <label><input type="radio" name="payment" value="pix" required> Pix</label><br>
+      <label><input type="radio" name="payment" value="cartao"> Cartão</label><br>
+      <label><input type="radio" name="payment" value="dinheiro"> Dinheiro</label>
+    </div>
+
+    <!-- Troco -->
+    <div id="troco-container" class="hidden">
+      <label class="block mb-2 font-medium" for="valorPago">Valor que você irá pagar:</label>
+      <input type="number" id="valorPago"
+        class="border border-gray-300 rounded px-3 py-2 w-full"
+        placeholder="R$" min="0.01" step="0.01" />
       <p id="troco-warn" class="text-red-600 text-sm mt-1 hidden">Informe um valor válido para calcular o troco.</p>
     </div>
 
-    <!-- ENDEREÇO -->
-    <label for="address" class="font-semibold mt-4 block">Endereço de entrega:</label>
-    <input type="text" id="address" class="w-full border-2 p-2 rounded my-1" />
-    <p id="address-warn" class="text-red-600 hidden">Digite seu endereço completo!!</p>
+    <!-- Endereço -->
+    <div>
+      <p class="font-semibold">Endereço de entrega:</p>
+      <input type="text" placeholder="Digite seu endereço completo" id="address"
+        class="w-full border-2 p-1 rounded my-1">
+      <p class="text-red-600 hidden" id="address-warn">Digite seu endereço completo!!</p>
+    </div>
 
-    <!-- BOTÕES -->
-    <div class="flex items-center justify-between mt-5 w-full">
-      <button id="close-modal-btn" class="text-gray-600 hover:underline">Fechar</button>
+    <!-- Botões -->
+    <div class="flex items-center justify-between mt-2 w-full">
+      <button id="close-modal-btn" class="text-gray-600 hover:text-black">Fechar</button>
       <button id="checkout-btn" class="bg-green-500 text-white px-4 py-2 rounded">Finalizar pedido</button>
     </div>
   </div>
 </div>
-    
+<!--FIM Modal cart-->
+
     <!--Button Cart Footer-->
     <footer class="w-full bg-red-500 py-2 fixed  bottom-0 z-40 flex items-center justify-center">
         <button class="flex items-center gap-2 font-semibold" id="cart-btn">
