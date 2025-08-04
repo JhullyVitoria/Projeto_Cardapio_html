@@ -300,8 +300,8 @@
 <div class="bg-black/50 w-full h-full fixed top-0 left-0 z-[99] flex items-center justify-center hidden" id="cart-modal">
     <div class="bg-white p-5 rounded-md w-[90%] md:w-[600px] max-h-[90vh] flex flex-col gap-4">
         <h2 class="text-center font-semibold text-lg">Meu Carrinho</h2>
-
-        <div class="h-auto overflow-y-auto max-h-[70vh]">
+        
+        <div class="h-auto overflow-y-auto" style="max-height: calc(90vh - 120px);">
             <div id="cart-items" class="flex flex-col gap-2"></div>
             
             <p class="font-semibold">Total: R$ <span id="cart-total">0.00</span></p>
