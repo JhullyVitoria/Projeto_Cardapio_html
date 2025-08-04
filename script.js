@@ -9,6 +9,10 @@ const checkoutBtn = document.getElementById("checkout-btn")
 const addressInput = document.getElementById("address")
 const addressWarn = document.getElementById("address-warn")
 const observationInput = document.getElementById("observation")
+// Mostrar campo do troco
+const paymentRadios = document.querySelectorAll('input[name="payment"]');
+const trocoContainer = document.getElementById("troco-container");
+const valorPagoInput = document.getElementById("valorPago");
 
 let cart = [];
 
@@ -127,6 +131,18 @@ function removeItemCart(name) {
         updateCartModal();
     }
 }
+
+paymentRadios.forEach(radio => {
+  radio.addEventListener('change', function() {
+    if (this.value === 'dinheiro') {
+      trocoContainer.classList.remove('hidden');
+      valorPagoInput.setAttribute('required', 'required'); // Torna o campo de troco obrigatório
+    } else {
+      trocoContainer.classList.add('hidden');
+      valorPagoInput.removeAttribute('required'); // Remove a obrigatoriedade
+    }
+  });
+});
 
 // Finalizar pedido
 checkoutBtn.addEventListener("click", function() {
