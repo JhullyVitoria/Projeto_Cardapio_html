@@ -184,38 +184,54 @@ checkoutBtn.addEventListener("click", function() {
     }
 
 // Enviar o pedido para a API do Whatsapp
-const clientName = document.getElementById("client-name").value;
-const valorPago = valorPagoInput.value;
+// Captura dos dados
+const clientName = document.getElementById("client-name").value.trim() || "Cliente";
+const address = addressInput.value.trim();
+const observation = observationInput.value.trim() || "Nenhuma";
+const valorPago = parseFloat(valorPagoInput.value);
 const paymentMethod = document.querySelector('input[name="payment"]:checked')?.value || "Não informado";
+const total = parseFloat(cartTotal.textContent);
 
+// Geração dos itens formatados
 const cartItemsText = cart.map((item) => {
   return `*${item.name}*\nQuantidade: ${item.quantity}\nPreço: R$${(item.price * item.quantity).toFixed(2)}\n`;
 }).join("\n");
 
+// Montagem da mensagem
 let message = `
-*NOVO PEDIDO* 🛒
+*Pedido de ${clientName}*
 
-👤 *Cliente:* ${clientName}
-📍 *Endereço:* ${addressInput.value}
-📝 *Observação:* ${observationInput.value}
-💳 *Pagamento:* ${paymentMethod}
-💰 *Total:* R$${cartTotal.textContent}
+*Endereço:* ${address}
+*Observação:* ${observation}
+*Pagamento:* ${paymentMethod}
+*Total:* R$${total.toFixed(2)}
 `;
 
-if (paymentMethod === "dinheiro") {
-  message += `\n💵 *Valor pago:* R$${valorPago}`;
+// Se for dinheiro e valor válido, mostra valor pago e troco
+if (paymentMethod === "dinheiro" && !isNaN(valorPago)) {
+  message += `\n *Valor pago:* R$${valorPago.toFixed(2)}`;
+
+  if (valorPago > total) {
+    const troco = (valorPago - total).toFixed(2);
+    message += `\n *Troco:* R$${troco}`;
+  } else if (valorPago < total) {
+    message += `\n *Valor pago insuficiente!*`;
+  }
 }
 
+// Adiciona os itens
 message += `
 
-🧾 *Itens do pedido:*
+*Itens do pedido:*
 ${cartItemsText}
 `.trim();
 
+// Envio
 const phoneNumber = "5534996583889";
 const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
 window.open(url, "_blank");
 
+// Reset
 cart = [];
 updateCartModal();
 cartModal.classList.add("hidden");
