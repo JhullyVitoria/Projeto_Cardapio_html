@@ -213,14 +213,14 @@ if (paymentMethod === "dinheiro" && !isNaN(valorPago)) {
 
   if (valorPago > total) {
     const troco = (valorPago - total).toFixed(2);
-    message += `\n*Troco:* R$${troco}\n`;
+    message += `\n*Troco:* R$${troco}`;
   } else if (valorPago < total) {
     message += `\n*Valor pago insuficiente!*\n`;
   }
 }
 
 // Adiciona os itens
-message += `
+message += `\n
 
 *Itens do pedido:*
 ${cartItemsText}
