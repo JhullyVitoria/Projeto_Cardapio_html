@@ -209,11 +209,11 @@ let message = `
 
 // Se for dinheiro e valor válido, mostra valor pago e troco
 if (paymentMethod === "dinheiro" && !isNaN(valorPago)) {
-  message += `\n *Valor pago:* R$${valorPago.toFixed(2)}`;
+  message += `\n*Valor pago:* R$${valorPago.toFixed(2)}`;
 
   if (valorPago > total) {
     const troco = (valorPago - total).toFixed(2);
-    message += `\n*Troco:* R$${troco}`;
+    message += `\n*Troco:* R$${troco}\n`;
   } else if (valorPago < total) {
     message += `\n*Valor pago insuficiente!*\n`;
   }
