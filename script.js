@@ -195,7 +195,7 @@ checkoutBtn.addEventListener("click", function() {
     Total: R$${cartTotal.textContent} \n\n
     ${cartItems}`;
 
-    const phoneNumber = "5534999999999";
+    const phoneNumber = "5534996583889";
     window.open(`https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`, "_blank");
 
     cart = [];
