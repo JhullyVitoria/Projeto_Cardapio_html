@@ -9,10 +9,6 @@ const checkoutBtn = document.getElementById("checkout-btn")
 const addressInput = document.getElementById("address")
 const addressWarn = document.getElementById("address-warn")
 const observationInput = document.getElementById("observation")
-// Mostrar campo do troco
-const paymentRadios = document.querySelectorAll('input[name="payment"]');
-const trocoContainer = document.getElementById("troco-container");
-const valorPagoInput = document.getElementById("valorPago");
 
 let cart = [];
 
@@ -184,28 +180,41 @@ checkoutBtn.addEventListener("click", function() {
     }
 
 // Enviar o pedido para a API do Whatsapp
+const clientName = document.getElementById("client-name").value;
+const valorPago = valorPagoInput.value;
+const paymentMethod = document.querySelector('input[name="payment"]:checked')?.value || "Não informado";
+
 const cartItemsText = cart.map((item) => {
   return `*${item.name}*\nQuantidade: ${item.quantity}\nPreço: R$${(item.price * item.quantity).toFixed(2)}\n`;
 }).join("\n");
 
-const message = `
-*NOVO PEDIDO*
+let message = `
+*NOVO PEDIDO* 🛒
 
-📍 Endereço: ${addressInput.value}
-📝 Observação: ${observationInput.value}
-💰 Total: R$${cartTotal.textContent}
+👤 *Cliente:* ${clientName}
+📍 *Endereço:* ${addressInput.value}
+📝 *Observação:* ${observationInput.value}
+💳 *Pagamento:* ${paymentMethod}
+💰 *Total:* R$${cartTotal.textContent}
+`;
 
-🛒 Itens:
+if (paymentMethod === "dinheiro") {
+  message += `\n💵 *Valor pago:* R$${valorPago}`;
+}
+
+message += `
+
+🧾 *Itens do pedido:*
 ${cartItemsText}
-`.trim(); // remove espaços extras no início/fim
+`.trim();
 
 const phoneNumber = "5534996583889";
 const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
 window.open(url, "_blank");
-    
-    cart = [];
-    updateCartModal();
-    cartModal.classList.add("hidden");
+
+cart = [];
+updateCartModal();
+cartModal.classList.add("hidden");
 });
 
 // Verificar se o restaurante está aberto
