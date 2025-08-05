@@ -1,14 +1,18 @@
-const menu = document.getElementById("menu")
-const cartBtn = document.getElementById("cart-btn")
-const cartModal = document.getElementById("cart-modal")
-const cartItems = document.getElementById("cart-items")
-const cartCount = document.getElementById("cart-count"); // Já está correto aqui
-const closeModalBtn = document.getElementById("close-modal-btn")
-const cartTotal = document.getElementById("cart-total")
-const checkoutBtn = document.getElementById("checkout-btn")
-const addressInput = document.getElementById("address")
-const addressWarn = document.getElementById("address-warn")
-const observationInput = document.getElementById("observation")
+const menu = document.getElementById("menu");
+const cartBtn = document.getElementById("cart-btn");
+const cartModal = document.getElementById("cart-modal");
+const cartItems = document.getElementById("cart-items");
+const cartCount = document.getElementById("cart-count");
+const closeModalBtn = document.getElementById("close-modal-btn");
+const cartTotal = document.getElementById("cart-total");
+const checkoutBtn = document.getElementById("checkout-btn");
+const addressInput = document.getElementById("address");
+const addressWarn = document.getElementById("address-warn");
+const observationInput = document.getElementById("observation");
+const paymentRadios = document.querySelectorAll('input[name="payment"]');
+const trocoContainer = document.getElementById("troco-container");
+const valorPagoInput = document.getElementById("valorPago");
+
 
 let cart = [];
 
