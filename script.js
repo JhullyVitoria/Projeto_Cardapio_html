@@ -183,21 +183,26 @@ checkoutBtn.addEventListener("click", function() {
         return;
     }
 
-    // Enviar o pedido para a API do Whatsapp
-    const cartItems = cart.map((item) => {
-        return `*${item.name}* \n Quantidade: (${item.quantity}) \n Preço: R$${(item.price * item.quantity).toFixed(2)}\n\n`;
-    }).join("");
+// Enviar o pedido para a API do Whatsapp
+const cartItemsText = cart.map((item) => {
+  return `*${item.name}*\nQuantidade: ${item.quantity}\nPreço: R$${(item.price * item.quantity).toFixed(2)}\n`;
+}).join("\n");
 
-    const message = `
-    *NOVO PEDIDO* \n\n
-    Endereço: ${addressInput.value} \n
-    Observação: ${observationInput.value} \n
-    Total: R$${cartTotal.textContent} \n\n
-    ${cartItems}`;
+const message = `
+*NOVO PEDIDO*
 
-    const phoneNumber = "5534996583889";
-    window.open(`https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`, "_blank");
+📍 Endereço: ${addressInput.value}
+📝 Observação: ${observationInput.value}
+💰 Total: R$${cartTotal.textContent}
 
+🛒 Itens:
+${cartItemsText}
+`.trim(); // remove espaços extras no início/fim
+
+const phoneNumber = "5534996583889";
+const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+window.open(url, "_blank");
+    
     cart = [];
     updateCartModal();
     cartModal.classList.add("hidden");
