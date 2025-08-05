@@ -213,7 +213,7 @@ if (paymentMethod === "dinheiro" && !isNaN(valorPago)) {
 
   if (valorPago > total) {
     const troco = (valorPago - total).toFixed(2);
-    message += `\n*Troco:* R$${troco}`;
+    message += `\n*Troco:* R$${troco}\n\n`;
   } else if (valorPago < total) {
     message += `\n*Valor pago insuficiente!*\n`;
   }
