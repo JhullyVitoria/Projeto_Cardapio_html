@@ -243,7 +243,7 @@ function checkRestaurantOpen() {
     const dayOfWeek = date.getDay(); // 0 = Domingo, 1 = Segunda...
     const hour = date.getHours();
 
-    const isOpen = (dayOfWeek >= 2 && dayOfWeek <= 6) && (hour >= 18 && hour < 23);
+    const isOpen = (dayOfWeek >= 1 && dayOfWeek <= 6) && (hour >= 18 && hour < 23);
     
     const dateSpan = document.getElementById("date-span");
     if (isOpen) {
