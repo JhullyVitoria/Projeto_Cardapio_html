@@ -33,7 +33,7 @@ Um site interativo de pedidos e cardápio digital desenvolvido para uma hamburgu
 O projeto encontra-se publicado e pode ser acessado através do seguinte link:
 ➡️ **[Acessar o Cardápio Digital (Vercel)](https://projeto-cardapio-html.vercel.app/)**
 
-## ⚙️ Como executar o projeto localmente
+## Como executar o projeto localmente
 
 Para rodar este projeto no seu ambiente local, siga os passos indicados abaixo:
 
@@ -53,7 +53,5 @@ Para rodar este projeto no seu ambiente local, siga os passos indicados abaixo:
     ```bash
     npm run dev
     ```
-
-## 👩🏾‍💻 Autoria
-
+    
 Desenvolvido por **Jhully Vitória Nunes Leite**.
